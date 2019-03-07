@@ -1,0 +1,25 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Modificar tarea</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="hidden">
+      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id" readonly="true">
+    </div>
+    <div class="form-group">
+      <label for="nombreTarea">Nombre:</label>
+      <input type="text" formControlName="nombreTarea" placeholder="nombreTarea" name="nombreTarea" class="form-control" id="nombreTarea">
+    </div>
+
+    <div class="form-group">
+      <label for="detalleTarea">Detalle:</label>
+      <input formControlName="detalleTarea" placeholder="detalleTarea" name="detalleTarea" class="form-control" id="detalleTarea">
+    </div>
+
+    <div class="form-group">
+      <label for="estadoTarea">Estado de la tarea:</label>
+      <input formControlName="estadoTarea" placeholder="estadoTarea" name="estadoTarea" class="form-control" id="estadoTarea">
+    </div>
+
+
+    <button class="btn btn-success">Modificar</button>
+  </form>
+</div>

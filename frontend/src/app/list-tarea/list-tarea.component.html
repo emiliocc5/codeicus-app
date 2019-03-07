@@ -1,3 +1,30 @@
-<p>
-  list-tarea works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1>Tareas</h1>
+  </div>
+  <div class="panel-body">
+      <table class="tabla tabla anidada">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Detalle</th>
+                  <th>Estado</th>
+                  <th>Accion</th>
+                  <th>Accion</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="cada tarea de tareas | async">
+                  <td>{{tareas.id}}</td>
+                  <td>{{tareas.nombre}}</td>
+                  <td>{{tareas.detalle}}</td>
+                  <td>{{tareas.estado}}</td>
+                  <td><button class="btn btn-danger" (click)="borrarTarea(tareas.id)">Borrar tarea</button></td>
+                  <td><button class="btn btn-neutral" (click)="editarTareas(tareas)" style="margin-left: 20px";>Editar tarea</button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <button class="btn btn-success" style="width:100px" (click)="crearTarea()"> Crear tarea</button>
+</div>

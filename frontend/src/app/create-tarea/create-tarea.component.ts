@@ -23,7 +23,7 @@ export class CreateTareaComponent implements OnInit {
   }
  
   save() {
-    this.tareaservice.createTarea(this.tarea)
+    this.tareaservice.crearTarea(this.tarea)
       .subscribe(data => console.log(data), error => console.log(error));
     this.tarea = new Tarea();
   }
