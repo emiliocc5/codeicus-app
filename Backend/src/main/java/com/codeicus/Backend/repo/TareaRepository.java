@@ -1,9 +1,9 @@
-package repo;
+package com.codeicus.Backend.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import model.Tarea;
+import com.codeicus.Backend.model.Tarea;
 
 @Repository
 public interface TareaRepository extends JpaRepository <Tarea, Integer> {   //Use JpaRepository y no crudrepository porque es mas completo

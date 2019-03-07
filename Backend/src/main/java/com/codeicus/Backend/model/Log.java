@@ -1,4 +1,4 @@
-package model;
+package com.codeicus.Backend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
