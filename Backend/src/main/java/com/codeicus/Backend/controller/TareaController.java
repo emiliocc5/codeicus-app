@@ -1,8 +1,7 @@
 package com.codeicus.Backend.controller;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -113,16 +112,19 @@ public class TareaController {
 		 }*/
 	
 	@DeleteMapping("/borrarTarea/{id}")
-	public Map<String, Boolean> deleteTarea(@PathVariable(value = "id") int id){
+	public void deleteTarea(@PathVariable(value="id") int id) {
+		repository.deleteById(id);		
+	}
+	/*public Map<String, Boolean> deleteTarea(@PathVariable(value = "id") int id){
 	  //throws ResourceNotFoundException {
-	 Tarea _tarea = repository.findById(id);
+	 Optional<Tarea> repository.findById(id);
 	   //.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
 
-	 repository.delete(_tarea);
+	 repository.deleteById(id);
 	 Map<String, Boolean> response = new HashMap<>();
 	 response.put("deleted", Boolean.TRUE);
 	 return response;
-	}
+	}*/
 	
 
 }
