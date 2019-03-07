@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tarea } from './tarea';
+import { Tarea } from '../model/tarea';
 
 @Injectable({
   providedIn: 'root'

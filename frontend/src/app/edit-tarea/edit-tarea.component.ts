@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Tarea } from '../tarea';
+import { Tarea } from '../model/tarea';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { TareaService } from '../tarea.service';
+import { TareaService } from '../service/tarea.service';
 import {first} from "rxjs/operators";
 
 @Component({

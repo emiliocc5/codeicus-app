@@ -25,7 +25,7 @@ import com.codeicus.Backend.repo.TareaRepository;
 
 
 @RestController
-//@RequestMapping ("/tarea")
+@RequestMapping ("/codeicus")
 public class TareaController {
 	
 	@Autowired

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarea } from '../tarea';
-import { TareaService } from '../tarea.service';
+import { Tarea } from '../model/tarea';
+import { TareaService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-create-tarea',

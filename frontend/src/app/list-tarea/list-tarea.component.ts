@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import { Observable } from 'rxjs';
-import {Tarea} from './../tarea'
-import { TareaService } from '../tarea.service';
+import {Tarea} from '../model/tarea'
+import { TareaService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-list-tarea',
