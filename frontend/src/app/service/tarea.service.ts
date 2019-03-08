@@ -10,6 +10,10 @@ import { Tarea } from '../model/tarea';
 })
 export class TareaService {
 
+  //Meter todos los return dentro de un try {return} catch(error){}
+
+  //en los returns de las funciones seguir con .subscribe video dante minuto 45:30
+
   private baseUrl = 'http://localhost:8080/codeicus';
  
   constructor(private http: HttpClient) { }
@@ -31,7 +35,7 @@ export class TareaService {
   }
    
   borrarTarea(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}`+`borrarTarea`+`/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}`+`/borrarTarea`+`/${id}`, { responseType: 'text' });
   }
    
   }

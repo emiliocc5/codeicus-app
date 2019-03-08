@@ -27,11 +27,11 @@ export class ListTareaComponent implements OnInit {
     window.localStorage.removeItem("detalleTareaId");
     window.localStorage.setItem("detalleTareaId", tarea.id.toString());
     //this.tareaservice.detalleTarea(id)
-    this.router.navigate(['edit-tarea'])
+    this.router.navigate(['/editTarea'])
   }
 
   crearTarea(): void{
-    this.router.navigate(['create-tarea'])
+    this.router.navigate(['/crearTarea'])
   }
 
   borrar(id: number){

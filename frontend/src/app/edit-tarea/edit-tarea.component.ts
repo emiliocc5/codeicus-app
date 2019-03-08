@@ -39,7 +39,7 @@ export class EditTareaComponent implements OnInit {
 
 onSubmit() {
   this.tareaservice.editarTarea(this.editform.value)
-    .pipe(first())
+    /*.pipe(first())
     .subscribe(
       data => {
         if(data.status === 200) {
@@ -51,7 +51,7 @@ onSubmit() {
       },
       error => {
         alert(error);
-      });
+      });*/
 }
 
 }

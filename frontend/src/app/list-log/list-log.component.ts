@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Log } from '../model/log';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { LogService } from '../service/log.service';
 
 @Component({
   selector: 'app-list-log',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListLogComponent implements OnInit {
 
-  constructor() { }
+  logs: Observable<Log[]>;
+
+  constructor(private router: Router,private logservice: LogService ) { }
 
   ngOnInit() {
+    this.listar();
   }
 
+  listar(){
+    this.logs= this.logservice.listarLogs(); 
+  }
 }

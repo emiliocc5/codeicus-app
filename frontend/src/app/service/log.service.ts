@@ -11,7 +11,7 @@ export class LogService {
  
   constructor(private http: HttpClient) { }
 
-  getLogList(): Observable<any> {
+  listarLogs(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codeicus.Backend.model.Tarea;
 import com.codeicus.Backend.repo.TareaRepository;
 
-
+@CrossOrigin(origins= "http://localhost:4200")
 @RestController
 @RequestMapping ("/codeicus")
 public class TareaController {

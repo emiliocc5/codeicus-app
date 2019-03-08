@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from '../model/tarea';
 import { TareaService } from '../service/tarea.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-tarea',
@@ -31,6 +32,9 @@ export class CreateTareaComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.save();
+  }
+  volver(){
+    this.tareaservice.listarTareas();
   }
 }
 
