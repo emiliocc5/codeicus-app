@@ -23,9 +23,9 @@ export class ListTareaComponent implements OnInit {
     this.tareas= this.tareaservice.listarTareas(); 
   }
 
-  editarTarea(tarea: Tarea): void{
+  editarTarea(id: number): void{
     window.localStorage.removeItem("detalleTareaId");
-    window.localStorage.setItem("detalleTareaId", tarea.id.toString());
+    window.localStorage.setItem("detalleTareaId", id.toString());
     //this.tareaservice.detalleTarea(id)
     this.router.navigate(['/editTarea'])
   }
@@ -36,9 +36,11 @@ export class ListTareaComponent implements OnInit {
 
   borrar(id: number){
     this.tareaservice.borrarTarea(id)
+    
     .subscribe(
       data => {
         console.log(data);
+        alert('Borrado'); //Evaluar
         this.listar();
       },
       error => console.log(error));

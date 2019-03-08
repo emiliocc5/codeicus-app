@@ -21,7 +21,7 @@ export class EditTareaComponent implements OnInit {
     let TareaId = window.localStorage.getItem("detalleTareaId");
     if(!TareaId) {
       alert("Invalid action.")
-      this.router.navigate(['list-tarea']);
+      this.router.navigate(['/list-tarea']);
       return;
     }
 
@@ -39,12 +39,19 @@ export class EditTareaComponent implements OnInit {
 
 onSubmit() {
   this.tareaservice.editarTarea(this.editform.value)
-    /*.pipe(first())
-    .subscribe(
-      data => {
-        if(data.status === 200) {
+    .pipe(first())
+      .subscribe(
+          data => {
+            console.log(data);
+            alert('Borrado'); //Evaluar
+            this.router.navigate(['/list-tarea']);
+          },
+          error => {
+            alert('Se produjo un error');
+            console.log(error)});
+        /*if(data.status === 200) {
           alert('Tarea actualizada.');
-          this.router.navigate(['list-tarea']);
+          this.router.navigate(['/list-tarea']);
         }else {
           alert(data.message);
         }
