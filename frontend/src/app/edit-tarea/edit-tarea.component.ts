@@ -12,20 +12,20 @@ import {first} from "rxjs/operators";
 })
 export class EditTareaComponent implements OnInit {
 
-  tarea: Tarea;
-  editform: FormGroup;
+  tarea: Tarea=new Tarea();
+  editForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router,private tareaservice: TareaService ){}
 
   ngOnInit() {
     let TareaId = window.localStorage.getItem("detalleTareaId");
     if(!TareaId) {
-      alert("Invalid action.")
-      this.router.navigate(['/list-tarea']);
+      alert("No existe esa tarea, se lo redirigira al listado de tareas")
+      this.router.navigate(['/listarTarea']);
       return;
     }
 
-  this.editform = this.formBuilder.group({
+  this.editForm = this.formBuilder.group({
     id: [''],
     nombre: ['', Validators.required],
     detalle: ['', Validators.required],
@@ -33,32 +33,27 @@ export class EditTareaComponent implements OnInit {
     });
   this.tareaservice.detalleTarea(+TareaId)
     .subscribe( data => {
-    this.editform.setValue(data.result);
+    this.editForm.setValue(data);
   });
 }
 
 onSubmit() {
-  this.tareaservice.editarTarea(this.editform.value)
+  this.tareaservice.editarTarea(this.editForm.value)
     .pipe(first())
       .subscribe(
           data => {
             console.log(data);
-            alert('Borrado'); //Evaluar
-            this.router.navigate(['/list-tarea']);
+            alert('Tarea modificada'); 
+            this.router.navigate(['/listarTarea']);
           },
           error => {
-            alert('Se produjo un error');
+            alert('Se produjo un error al modificar la tarea');
             console.log(error)});
-        /*if(data.status === 200) {
-          alert('Tarea actualizada.');
-          this.router.navigate(['/list-tarea']);
-        }else {
-          alert(data.message);
-        }
-      },
-      error => {
-        alert(error);
-      });*/
+        
+}
+
+ngOnDestroy(){  //Sin esto, al llamarlo por la URL directamente me trae el ultimo editado.
+  window.localStorage.removeItem("detalleTareaId");
 }
 
 }

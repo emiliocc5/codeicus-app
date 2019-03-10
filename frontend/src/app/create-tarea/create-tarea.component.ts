@@ -13,7 +13,7 @@ export class CreateTareaComponent implements OnInit {
   tarea: Tarea = new Tarea();
   submitted= false;
 
-  constructor(private tareaservice: TareaService) { }
+  constructor(private tareaservice: TareaService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -34,7 +34,7 @@ export class CreateTareaComponent implements OnInit {
     this.save();
   }
   volver(){
-    this.tareaservice.listarTareas();
+    this.router.navigate(['/listarTarea']);
   }
 }
 

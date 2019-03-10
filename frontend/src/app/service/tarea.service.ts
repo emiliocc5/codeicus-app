@@ -12,8 +12,6 @@ export class TareaService {
 
   //Meter todos los return dentro de un try {return} catch(error){}
 
-  //en los returns de las funciones seguir con .subscribe video dante minuto 45:30
-
   private baseUrl = 'http://localhost:8080/codeicus';
  
   constructor(private http: HttpClient) { }
@@ -23,13 +21,13 @@ export class TareaService {
   }
 
   detalleTarea(id: number): Observable<any>{        //tambien revisar este metodo
-    return this.http.get(`${this.baseUrl}`+`/tareas`+`/${id}`); }
+    return this.http.get(`${this.baseUrl}`+`/getTarea`+`/${id}`); }
 
   crearTarea(tarea: Object): Observable<Object> {
       return this.http.post(`${this.baseUrl}` + `/crearTarea`, tarea);
   }
   
-  editarTarea(tarea: Tarea): Observable<Object> {  //en algun momento revisar este 
+  editarTarea(tarea: Tarea): Observable<Object> {  
     return this.http.put(`${this.baseUrl}`+`/modificarTarea`+`/${tarea.id}`,tarea);
   }
    

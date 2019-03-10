@@ -1,7 +1,7 @@
 package com.codeicus.Backend.controller;
 
 
-import java.io.Console;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codeicus.Backend.exception.TareaNotFoundException;
+import com.codeicus.Backend.model.Log;
 import com.codeicus.Backend.model.Tarea;
+import com.codeicus.Backend.repo.LogRepository;
 import com.codeicus.Backend.repo.TareaRepository;
 
 @CrossOrigin(origins= "http://localhost:4200")
@@ -31,6 +33,9 @@ public class TareaController {
 	
 	@Autowired
 	private TareaRepository repository;
+	
+	@Autowired
+	private LogRepository repoLog;
 	
 	
 	//LISTAR TODAS LAS TAREAS
@@ -46,18 +51,18 @@ public class TareaController {
 	public Tarea detalleTarea(@PathVariable(value = "id") int id) throws TareaNotFoundException {
 		final Optional<Tarea> TareaOptional= repository.findById(id);
 		if (!TareaOptional.isPresent()) {
-			System.out.println("No se encontro la tarea con id" + id);
-			throw new TareaNotFoundException(id);
+			throw new TareaNotFoundException("No se encontro");
+			
 		}
 		return TareaOptional.get();
 				
-	}
-	
-	
+	}	
 	//CREAR NUEVA TAREA
 	
 	@PostMapping ("/crearTarea")
 	public Tarea crearTarea(@RequestBody Tarea tarea) {
+		//this.log.setDetalle("Se creo la tarea con id: "+tarea.getId());
+		Log log=repoLog.save(new Log("Se creo la tarea con id: "+tarea.getNombre()));
 		return repository.save(tarea);	
 	}
 	
@@ -75,19 +80,29 @@ public class TareaController {
 			 _tarea.setEstado(tarea.getEstado());}
 			 if (tarea.getEstado()!=null) {
 			 _tarea.setNombre(tarea.getNombre());}
+			 /*this.log.setDetalle("Se modifico la tarea: "+_tarea.getId());
+			 repoLog.save(log);*/
 			 return new ResponseEntity<>(repository.save(_tarea), HttpStatus.OK);
 			 } else {
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			 }
 			 }
 	
-	//BORRAR UNA TAREA
-	
+	//BORRAR UNA TAREA	
 	@DeleteMapping("/borrarTarea/{id}")
-	public void deleteTarea(@PathVariable(value="id") int id) {  //throws tarea not found exception si no encuentra la tarea a borrar
-		repository.deleteById(id);	
-		System.out.println("Se borro la tarea "+id);
+	public void deleteTarea(@PathVariable(value="id") int id) throws TareaNotFoundException {
+		if (repository.existsById(id)) {
+			repository.deleteById(id);
+			/*this.log.setDetalle("Se borro la tarea "+id);
+			this.repoLog.save(log);*/
+		}else {
+			/*this.log.setDetalle("No se encontro la tarea " +id+ " para borrar");
+			this.repoLog.save(log);*/
+			throw new TareaNotFoundException("No se encontro la tarea a borrar");
+		}
 	}
+
+	
 	
 	
 

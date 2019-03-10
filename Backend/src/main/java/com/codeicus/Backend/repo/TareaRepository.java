@@ -10,6 +10,5 @@ import com.codeicus.Backend.model.Tarea;
 @Repository
 public interface TareaRepository extends JpaRepository <Tarea, Integer> {   //Use JpaRepository y no crudrepository porque es mas completo
 
-	//Ver si defino el metodo del detalle de una tarea.
-	
 }
+

@@ -22,6 +22,9 @@ public class Log {
 		this.id = id;
 		this.detalle = detalle;
 	}
+	public Log (String detalle) {
+		this.detalle=detalle;
+	}
 
 	public Log() {
 	}
