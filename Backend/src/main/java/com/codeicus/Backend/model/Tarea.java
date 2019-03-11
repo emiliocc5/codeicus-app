@@ -8,29 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tarea")
+@Table(name = "tarea")
 public class Tarea {
-	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private int id;
-	 
-	 @Column(name="nombre")
-	 private String nombre;
-	 
-	 @Column(name="detalle")
-	 private String detalle;
-	 
-	 @Column(name="estado")
-	 private String estado;
-	 
-	 public Tarea (String nom, String det, String est) {
-		 nombre=nom;
-		 detalle=det;
-		 estado=est;
-	 }
-	 
-	 public Tarea() {}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column(name = "nombre")
+	private String nombre;
+
+	@Column(name = "detalle")
+	private String detalle;
+
+	@Column(name = "estado")
+	private String estado;
+
+	public Tarea(String nom, String det, String est) {
+		nombre = nom;
+		detalle = det;
+		estado = est;
+	}
+
+	public Tarea() {
+	}
 
 	public int getId() {
 		return id;
@@ -68,9 +69,5 @@ public class Tarea {
 	public String toString() {
 		return "Tarea [id=" + id + ", nombre=" + nombre + ", detalle=" + detalle + ", estado=" + estado + "]";
 	}
-	 
-	 
-	 
-	 
 
 }

@@ -8,22 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="log")
+@Table(name = "log")
 public class Log {
-	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private int id;
-	 
-	 @Column (name="detalle")
-	 private String detalle;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column(name = "detalle")
+	private String detalle;
 
 	public Log(int id, String detalle) {
 		this.id = id;
 		this.detalle = detalle;
 	}
-	public Log (String detalle) {
-		this.detalle=detalle;
+
+	public Log(String detalle) {
+		this.detalle = detalle;
 	}
 
 	public Log() {
@@ -49,6 +50,5 @@ public class Log {
 	public String toString() {
 		return "Log [id=" + id + ", detalle=" + detalle + "]";
 	}
-	 
-	 
+
 }
