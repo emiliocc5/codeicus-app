@@ -43,5 +43,8 @@ export class ListTareaComponent implements OnInit {
       },
       error => console.log(error));
   }
+  volver(){
+    this.router.navigate(['/listarTarea']);
+  }
   
 }

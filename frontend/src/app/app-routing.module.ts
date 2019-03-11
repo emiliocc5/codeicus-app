@@ -7,7 +7,7 @@ import { ListLogComponent } from './list-log/list-log.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path: '', component:ListTareaComponent},
+  
   {path: 'listarTarea', component:ListTareaComponent },
   {path: 'crearTarea', component:CreateTareaComponent },
   {path: 'editTarea', component:EditTareaComponent },

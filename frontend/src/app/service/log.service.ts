@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LogService {
 
-  private baseUrl = 'http://localhost:8080/codeicus/logs';
+  private baseUrl = 'http://localhost:8080/codeicus/listarLogs';
  
   constructor(private http: HttpClient) { }
 

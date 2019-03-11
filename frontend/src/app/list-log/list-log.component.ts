@@ -22,4 +22,7 @@ export class ListLogComponent implements OnInit {
   listar(){
     this.logs= this.logservice.listarLogs(); 
   }
+  volver(){
+    this.router.navigate(['/'])
+  }
 }

@@ -1,19 +1,19 @@
-<div class="col-md-6 user-container">
-  <h2 class="text-center">Modificar tarea</h2>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <input type="text" formControlName="id" name="id" class="form-control" id="id" readonly="true">
-    </div>
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" formControlName="nombre" class="form-control" id="nombre" name="nombre" readonly="true">
-    </div>
-
-    <div class="form-group">
-      <label for="detalleTarea">Detalle:</label>
-      <input type="text" formControlName="detalle" class="form-control" id="detalleTarea" name="detalle"  >
-    </div>
-
+  <br>
+  <h2 class="text-center font-weight-bold">Modificar tarea</h2>
+  <br>
+  <div class="d-flex justify-content-center align-items-center container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" formControlName="id" name="id" class="form-control" id="id" readonly="true">
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombre" name="nombre" readonly="true">
+      </div>
+      <div class="form-group">
+        <label for="detalleTarea">Detalle:</label>
+        <input type="text" formControlName="detalle" required="true" class="form-control" id="detalleTarea" name="detalle"  >
+      </div>
     <div class="form-group">
       <label for="estadoTarea">Estado de la tarea:</label>
       <input type="text" formControlName="estado" class="form-control" id="estadoTarea" name="estadoTarea">
@@ -21,5 +21,6 @@
 
 
     <button type="submit" class="btn btn-success">Modificar</button>
+    <button class="btn btn-primary" (click)="volver()">Volver</button>
   </form>
 </div>

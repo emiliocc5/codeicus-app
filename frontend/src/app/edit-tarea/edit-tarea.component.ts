@@ -54,7 +54,9 @@ onSubmit() {
 ngOnDestroy(){  //Sin esto, al llamarlo por la URL directamente me trae el ultimo editado.
   window.localStorage.removeItem("detalleTareaId");
 }
-
+volver(){
+  this.router.navigate(['/listarTarea']);
+}
 }
 
 
