@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,31 +38,27 @@ public class TareaController {
 	private LogRepository repoLog;
 	
 	
-	//LISTAR TODAS LAS TAREAS
-	
+	//LISTAR TODAS LAS TAREAS	
 	@GetMapping("/listarTareas")
-    public List<Tarea> listarTareas() { //Throws NingunaTareaException si no encuentra ninguna tarea
+    public List<Tarea> listarTareas() { 
         return repository.findAll();      
     }
 	
-	//OBTENER UNA TAREA
-	
+	//OBTENER UNA TAREA	
 	@GetMapping ("/getTarea/{id}")
 	public Tarea detalleTarea(@PathVariable(value = "id") int id) throws TareaNotFoundException {
-		final Optional<Tarea> TareaOptional= repository.findById(id);
-		if (!TareaOptional.isPresent()) {
+		final Optional<Tarea> _tarea= repository.findById(id);
+		if (!_tarea.isPresent()) {
 			throw new TareaNotFoundException("No se encontro");
 			
 		}
-		return TareaOptional.get();
+		return _tarea.get();
 				
 	}	
-	//CREAR NUEVA TAREA
-	
+	//CREAR NUEVA TAREA	
 	@PostMapping ("/crearTarea")
 	public Tarea crearTarea(@RequestBody Tarea tarea) {
-		//this.log.setDetalle("Se creo la tarea con id: "+tarea.getId());
-		Log log=repoLog.save(new Log("Se creo la tarea con id: "+tarea.getNombre()));
+		Log log=repoLog.save(new Log("Se creo la tarea con nombre: "+tarea.getNombre()));
 		return repository.save(tarea);	
 	}
 	
@@ -71,7 +67,6 @@ public class TareaController {
 	@PutMapping ("/modificarTarea/{id}")
 	public ResponseEntity<Tarea> modificarTarea(@PathVariable int id, @Valid @RequestBody Tarea tarea) { //throws TareaNotFoundException
 		Optional<Tarea> ta = repository.findById(id);
-
 		 if (ta.isPresent()) {
 			 Tarea _tarea = ta.get();
 			 if(tarea.getDetalle()!= null) {
@@ -80,10 +75,10 @@ public class TareaController {
 			 _tarea.setEstado(tarea.getEstado());}
 			 if (tarea.getEstado()!=null) {
 			 _tarea.setNombre(tarea.getNombre());}
-			 /*this.log.setDetalle("Se modifico la tarea: "+_tarea.getId());
-			 repoLog.save(log);*/
+			 Log log=repoLog.save(new Log("Se modifico la tarea con nombre: "+tarea.getNombre()));
 			 return new ResponseEntity<>(repository.save(_tarea), HttpStatus.OK);
 			 } else {
+			 Log log=repoLog.save(new Log("No se pudo modificar la tarea con nombre: "+tarea.getNombre()));
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			 }
 			 }
@@ -91,13 +86,15 @@ public class TareaController {
 	//BORRAR UNA TAREA	
 	@DeleteMapping("/borrarTarea/{id}")
 	public void deleteTarea(@PathVariable(value="id") int id) throws TareaNotFoundException {
-		if (repository.existsById(id)) {
-			repository.deleteById(id);
-			/*this.log.setDetalle("Se borro la tarea "+id);
-			this.repoLog.save(log);*/
+			Optional<Tarea> ta = repository.findById(id);
+		if (ta.isPresent()) {
+			Tarea _tarea=ta.get();
+			Log log=repoLog.save(new Log("Se borro la tarea con nombre: "+_tarea.getNombre()));
+			repository.deleteById(id);			
 		}else {
 			/*this.log.setDetalle("No se encontro la tarea " +id+ " para borrar");
 			this.repoLog.save(log);*/
+			Log log=repoLog.save(new Log("Se quiso borrar una tarea pero no se encontro la misma"));
 			throw new TareaNotFoundException("No se encontro la tarea a borrar");
 		}
 	}

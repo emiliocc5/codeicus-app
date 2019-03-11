@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tarea } from '../model/tarea';
 import { TareaService } from '../service/tarea.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-tarea',
@@ -11,11 +12,18 @@ import { Router } from '@angular/router';
 export class CreateTareaComponent implements OnInit {
 
   tarea: Tarea = new Tarea();
+  createForm: FormGroup;
   submitted= false;
 
-  constructor(private tareaservice: TareaService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private tareaservice: TareaService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(){ 
+    this.createForm = this.formBuilder.group({
+    id: [''],
+    nombre: ['', Validators.required],
+    detalle: ['', Validators.required],
+    estado: ['', Validators.required],
+    })
   }
 
   newTarea(): void {
@@ -31,7 +39,7 @@ export class CreateTareaComponent implements OnInit {
  
   onSubmit() {
     this.submitted = true;
-    this.save();
+    this.tareaservice.crearTarea(this.tarea);
   }
   volver(){
     this.router.navigate(['/listarTarea']);

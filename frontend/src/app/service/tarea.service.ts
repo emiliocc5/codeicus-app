@@ -23,7 +23,7 @@ export class TareaService {
   detalleTarea(id: number): Observable<any>{        //tambien revisar este metodo
     return this.http.get(`${this.baseUrl}`+`/getTarea`+`/${id}`); }
 
-  crearTarea(tarea: Object): Observable<Object> {
+  crearTarea(tarea: Tarea): Observable<Object> {
       return this.http.post(`${this.baseUrl}` + `/crearTarea`, tarea);
   }
   

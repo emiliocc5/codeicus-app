@@ -24,15 +24,14 @@ export class EditTareaComponent implements OnInit {
       this.router.navigate(['/listarTarea']);
       return;
     }
-
-  this.editForm = this.formBuilder.group({
+    this.editForm = this.formBuilder.group({
     id: [''],
     nombre: ['', Validators.required],
     detalle: ['', Validators.required],
     estado: ['', Validators.required],
     });
-  this.tareaservice.detalleTarea(+TareaId)
-    .subscribe( data => {
+    this.tareaservice.detalleTarea(+TareaId)
+      .subscribe( data => {
     this.editForm.setValue(data);
   });
 }
