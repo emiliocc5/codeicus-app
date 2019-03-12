@@ -43,11 +43,11 @@ Aplicacion para la evaluacion Fullstack de Codeicus
  # Ejecucion
  Una vez descargado el proyecto 
  - Abrir consola 1
- -- Navegar hasta la carpeta Backend
- -- Ejecutar mvn Spring-Boot:Run para ejecutar el proyecto Backend
+ - Navegar hasta la carpeta Backend
+ - Ejecutar mvn Spring-Boot:Run para ejecutar el proyecto Backend
  - Abrir consola 2
- -- Navegar hasta la carpeta frontend
- -- Ejecutar ng serve para ejecutar el frontend
+ - Navegar hasta la carpeta frontend
+ - Ejecutar ng serve para ejecutar el frontend
  - Abrir un navegador e ir a http://localhost:4200
  
  # Aclaraciones
