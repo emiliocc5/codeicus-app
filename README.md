@@ -6,7 +6,6 @@ Aplicacion para la evaluacion Fullstack de Codeicus
 - [Prerequisitos](#Prerequisitos)
 - [Tecnologias](#Tecnologias)
 - [Uso](#Uso)
-- [Imagenes](#Imagenes)
 - [Aclaraciones](#Aclaraciones)
 # Prerequisitos
   - Java 1.8
@@ -34,7 +33,13 @@ Aplicacion para la evaluacion Fullstack de Codeicus
    - GitHub Desktop
  
  # Uso
- 
- # Imagenes
+ La aplicacion cuenta con los siguientes servicios
+ - Listar tareas
+ - Crear nueva tarea
+ - Editar una tarea ya existente
+ - Borrar una tarea
+ - Ver logs de la aplicacion
  
  # Aclaraciones
+ - Si bien el enuncia explicitaba que la base de datos debia ser SQL Server 2008, se utilizo MySQL por un problema al momento de instalacion y configuracion de SQL Server, igualmente se especificaron las dependencias a SQL Server dentro del proyecto, por lo cual solo habria que configurar la conexion para un posterior uso.
+ - No es necesario crear previamente las tablas en la BD
