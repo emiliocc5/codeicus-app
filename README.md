@@ -6,6 +6,7 @@ Aplicacion para la evaluacion Fullstack de Codeicus
 - [Prerequisitos](#Prerequisitos)
 - [Tecnologias](#Tecnologias)
 - [Uso](#Uso)
+- [Ejecucion](#Ejecucion)
 - [Aclaraciones](#Aclaraciones)
 # Prerequisitos
   - Java 1.8
@@ -29,7 +30,6 @@ Aplicacion para la evaluacion Fullstack de Codeicus
    - Spring Tool Suite
    - Visual Studio Code
    - Postman
-   - Git
    - GitHub Desktop
  
  # Uso
@@ -39,6 +39,16 @@ Aplicacion para la evaluacion Fullstack de Codeicus
  - Editar una tarea ya existente
  - Borrar una tarea
  - Ver logs de la aplicacion
+ 
+ # Ejecucion
+ Una vez descargado el proyecto 
+ - Abrir consola 1
+ -- Navegar hasta la carpeta Backend
+ -- Ejecutar mvn Spring-Boot:Run para ejecutar el proyecto Backend
+ - Abrir consola 2
+ -- Navegar hasta la carpeta frontend
+ -- Ejecutar ng serve para ejecutar el frontend
+ - Abrir un navegador e ir a http://localhost:4200
  
  # Aclaraciones
  - Si bien el enuncia explicitaba que la base de datos debia ser SQL Server 2008, se utilizo MySQL por un problema al momento de instalacion y configuracion de SQL Server, igualmente se especificaron las dependencias a SQL Server dentro del proyecto, por lo cual solo habria que configurar la conexion para un posterior uso.
