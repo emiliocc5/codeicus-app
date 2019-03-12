@@ -20,7 +20,7 @@ export class TareaService {
     return this.http.get(`${this.baseUrl}`+`/listarTareas`);
   }
 
-  detalleTarea(id: number): Observable<any>{        //tambien revisar este metodo
+  detalleTarea(id: number): Observable<any>{        
     return this.http.get(`${this.baseUrl}`+`/getTarea`+`/${id}`); }
 
   crearTarea(tarea: Tarea): Observable<Object> {

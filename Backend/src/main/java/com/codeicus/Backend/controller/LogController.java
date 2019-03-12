@@ -16,12 +16,9 @@ public class LogController {
 
 	@Autowired
 	private LogRepository repo;
-	
+
 	@GetMapping("/listarLogs")
 	public Iterable<Log> listarLog() {
 		return repo.findAll();
-
-		// @deletemapping borrar todos los logs throws nologexception
-
 	}
 }

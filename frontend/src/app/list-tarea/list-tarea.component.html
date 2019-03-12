@@ -1,13 +1,17 @@
 <div class="card">
     <div class="card-header">
+        <button class="btn btn-primary" style="width:100px" (click)="volver()"> Volver</button>
         <br>
-        <h1 class="text-center font-weight-bold">Listado de tareas</h1>
+        <h1 class="text-center">Listado de tareas</h1>
         <br>
     </div>
 </div>
     <div class="card-body">
+        <button class="btn btn-success" (click)="crearTarea()"> Crear tarea</button>
+        
         <div class="table-responsive">
-        <table class="table table-striped table-bordered">
+            <br>
+            <table class="table table-striped table-bordered">
         <thead class="thead-dark">
                 <tr>
                   <th class="text-center">ID</th>
@@ -17,7 +21,7 @@
                   <th class="text-center">Accion</th>
                   <th class="text-center">Accion</th>
                 </tr>
-            </thead>
+        </thead>
         <tbody>
               <tr *ngFor="let tarea of tareas | async">
                   <td class="text-center">{{tarea.id}}</td>
@@ -30,5 +34,8 @@
             </tbody>
         </table>
         </div>
-        <button class="btn btn-success" (click)="crearTarea()"> Crear tarea</button>
+        
+        <div class="text-right">
+            <button type="button" class="btn btn-secondary" (click)="topFunction()">Ir arriba</button>  
+        </div>
     </div>

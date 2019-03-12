@@ -25,4 +25,7 @@ export class ListLogComponent implements OnInit {
   volver(){
     this.router.navigate(['/'])
   }
+  topFunction(){
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
 }

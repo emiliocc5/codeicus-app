@@ -33,18 +33,19 @@ export class ListTareaComponent implements OnInit {
   }
 
   borrar(id: number){
-    this.tareaservice.borrarTarea(id)
-    
-    .subscribe(
-      data => {
-        console.log(data);
-        alert('Tarea borrada'); 
-        this.listar();
+    if(window.confirm('Estas seguro de que queres borrar esta tarea?')){
+      this.tareaservice.borrarTarea(id)
+      .subscribe(data => {console.log(data);
+      this.listar();
       },
       error => console.log(error));
   }
+}
   volver(){
-    this.router.navigate(['/listarTarea']);
+    this.router.navigate(['/']);
+  }
+  topFunction(){
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
   
 }

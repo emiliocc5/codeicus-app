@@ -10,6 +10,7 @@ import { ListTareaComponent } from './list-tarea/list-tarea.component';
 import { ListLogComponent } from './list-log/list-log.component';
 import { EditTareaComponent } from './edit-tarea/edit-tarea.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CreateTareaComponent,
     EditTareaComponent,
     ListTareaComponent,
-    ListLogComponent
+    ListLogComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

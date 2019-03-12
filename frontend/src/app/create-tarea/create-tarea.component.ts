@@ -12,7 +12,6 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class CreateTareaComponent implements OnInit {
 
   tarea: Tarea = new Tarea();
-  
   submitted= false;
 
   constructor(private tareaservice: TareaService, private router: Router) { }
@@ -20,10 +19,10 @@ export class CreateTareaComponent implements OnInit {
   ngOnInit(){ 
   }
 
-  newTarea(): void {
+  /*newTarea(): void {
     this.submitted = false;
     this.tarea = new Tarea();
-  }
+  }*/
  
   save() {
     this.tareaservice.crearTarea(this.tarea)

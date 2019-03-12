@@ -5,9 +5,10 @@ import { EditTareaComponent } from './edit-tarea/edit-tarea.component';
 import { CreateTareaComponent } from './create-tarea/create-tarea.component';
 import { ListLogComponent } from './list-log/list-log.component';
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  
+  {path: '', component:WelcomeComponent},
   {path: 'listarTarea', component:ListTareaComponent },
   {path: 'crearTarea', component:CreateTareaComponent },
   {path: 'editTarea', component:EditTareaComponent },
