@@ -1,0 +1,8 @@
+com\codeicus\Backend\BackendApplication.class
+com\codeicus\Backend\exception\TareaNotFoundException.class
+com\codeicus\Backend\model\Tarea.class
+com\codeicus\Backend\controller\LogController.class
+com\codeicus\Backend\repo\LogRepository.class
+com\codeicus\Backend\controller\TareaController.class
+com\codeicus\Backend\model\Log.class
+com\codeicus\Backend\repo\TareaRepository.class

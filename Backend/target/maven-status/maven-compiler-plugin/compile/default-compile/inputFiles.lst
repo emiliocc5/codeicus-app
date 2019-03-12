@@ -1,0 +1,8 @@
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\BackendApplication.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\model\Tarea.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\controller\LogController.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\repo\TareaRepository.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\model\Log.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\controller\TareaController.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\exception\TareaNotFoundException.java
+C:\dev\codeicus-app\Backend\src\main\java\com\codeicus\Backend\repo\LogRepository.java
